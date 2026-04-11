@@ -147,6 +147,15 @@ http://localhost:8080
 
 ---
 
+## 📸 Screenshots
+
+### Airflow DAG Execution
+![Airflow DAG](images/airflow.png)
+
+### PostgreSQL Data Output
+![Database](images/postgres.png)
+
+---
 ## 📬 Contact
 
 Open to opportunities in Data Engineering, Data Science, and Analytics.
