@@ -1,18 +1,20 @@
-# End-to-End Crypto Data Pipeline (Airflow + Docker + PostgreSQL)
+# 🚀 End-to-End Crypto Data Pipeline (Airflow + Docker + PostgreSQL)
 
 ## 📌 Overview
 
 This project implements an end-to-end data engineering pipeline that ingests, processes, and stores real-time cryptocurrency market data.
 
-The pipeline extracts data from the CoinGecko API, transforms it using Python, and loads it into a PostgreSQL database. Workflow orchestration is managed using Apache Airflow, and the entire system runs in a containerized environment using Docker.
+Extracts data from the CoinGecko API, transforms it using Python, and loads it into a PostgreSQL database. Workflow orchestration is managed using Apache Airflow, and the entire system runs in a containerized environment using Docker.
 
-This project simulates a production-style ETL workflow with automated scheduling and scalable infrastructure.
+Simulates a production-style ETL workflow with automated scheduling and scalable infrastructure.
 
 ---
 
-## 📌 Architecture
+## 🏗️ Architecture
 
 CoinGecko API → Python (ETL) → PostgreSQL → Airflow → BI Tools
+
+
 
 ---
 
@@ -23,6 +25,19 @@ CoinGecko API → Python (ETL) → PostgreSQL → Airflow → BI Tools
 * PostgreSQL
 * Docker & Docker Compose
 * Power BI (optional)
+
+---
+
+## 🌐 Data Source
+
+This project uses the CoinGecko API to retrieve real-time cryptocurrency market data.
+
+- Endpoint: `/coins/markets`
+- Data includes: price, market cap, volume, and asset metadata
+
+Example request:
+
+https://api.coingecko.com/api/v3/coins/markets
 
 ---
 
@@ -77,28 +92,82 @@ The Airflow DAG imports these functions and executes them as a scheduled workflo
 
 ---
 
+## 📸 Screenshots
+
+### 🔹 Airflow DAG Execution
+
+![Airflow DAG](images/airflow.png)
+
+### 🔹 PostgreSQL Query Output (Pipeline Result)
+
+![PostgreSQL Output](images/postgres.png)
+
+---
+
 ## ▶️ How to Run
 
-### 1. Clone the repository
+### 1. Start Docker
 
-git clone <your-repo-url>
-cd airflow-crypto-pipeline
+Make sure Docker Desktop is running.
 
-### 2. Start services
+### 2. Start the services
 
-docker compose up --build
+docker compose up -d
 
-### 3. Access Airflow
+Wait ~20–40 seconds until all services are ready.
 
+---
+
+### 3. Access Airflow UI
+
+Open your browser:
 http://localhost:8080
+
+Credentials:
 
 * Username: airflow
 * Password: airflow
 
-### 4. Run the pipeline
+---
 
-* Enable DAG: crypto_pipeline
-* Trigger manually or wait for scheduled run (@hourly)
+### 4. Trigger the pipeline
+
+* Locate DAG: `crypto_pipeline`
+* Enable it (toggle ON)
+* Click **Trigger DAG**
+
+---
+
+### 5. Verify execution
+
+* Go to **Graph View**
+* All tasks should appear **green (successful)**
+
+---
+
+### 6. Query the data in PostgreSQL
+
+Run:
+
+docker exec -it <postgres_container_name> psql -U airflow -d airflow
+
+List tables:
+\dt
+
+Query data:
+SELECT coin_id, price, market_cap, timestamp
+FROM crypto_prices
+ORDER BY timestamp DESC
+LIMIT 5;
+
+Exit:
+\q
+
+---
+
+## 🔄 Pipeline Flow
+
+Docker → Airflow → DAG Execution → PostgreSQL → Query Results
 
 ---
 
@@ -113,6 +182,7 @@ http://localhost:8080
   * price
   * market_cap
   * total_volume
+  * timestamp
 
 ---
 
@@ -147,15 +217,6 @@ http://localhost:8080
 
 ---
 
-## 📸 Screenshots
-
-### Airflow DAG Execution
-![Airflow DAG](images/airflow.png)
-
-### PostgreSQL Data Output
-![Database](images/postgres.png)
-
----
 ## 📬 Contact
 
 Open to opportunities in Data Engineering, Data Science, and Analytics.
