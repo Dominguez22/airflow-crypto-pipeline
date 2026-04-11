@@ -20,7 +20,7 @@ CoinGecko API → Python (ETL) → PostgreSQL → Airflow → BI Tools
 
 The following diagram illustrates the end-to-end data pipeline architecture, including data ingestion, transformation, orchestration, and storage.
 
-![Architecture Diagram](images/pipelinearchitecturediagram.png)
+![Architecture Diagram](images/pipeline_architecture_diagram.png)
 
 > The pipeline is orchestrated using Apache Airflow, which schedules and triggers the ETL process. Data is extracted from the CoinGecko API, transformed using Python, and stored in PostgreSQL within a fully containerized Docker environment.
 
