@@ -2,11 +2,11 @@ import requests
 import pandas as pd
 from sqlalchemy import create_engine
 
-# 🔌 conexión DB
+# conexión DB
 DB_URI = "postgresql://airflow:airflow@postgres:5432/airflow"
 
 
-# 🔹 EXTRACT
+# EXTRACT
 def extract_data():
     url = "https://api.coingecko.com/api/v3/coins/markets"
 
@@ -25,7 +25,7 @@ def extract_data():
     return response.json()
 
 
-# 🔹 TRANSFORM
+# TRANSFORM
 def transform_data(data):
     df = pd.DataFrame(data)
 
@@ -46,14 +46,14 @@ def transform_data(data):
     return df
 
 
-# 🔹 LOAD
+# LOAD
 def load_data(df):
     engine = create_engine(DB_URI)
 
     df.to_sql("crypto_prices", engine, if_exists="append", index=False)
 
 
-# 🔥 PIPELINE
+# PIPELINE
 def run_pipeline():
     print("🚀 Extrayendo datos...")
     data = extract_data()
@@ -61,12 +61,12 @@ def run_pipeline():
     print("🔄 Transformando datos...")
     df = transform_data(data)
 
-    print(df)  # 👈 para que veas la tabla
+    print(df) 
 
-    print("💾 Guardando en DB...")
+    print(" Guardando en DB...")
     load_data(df)
 
-    print("✅ Pipeline terminado")
+    print(" Pipeline terminado")
 
 
 if __name__ == "__main__":
