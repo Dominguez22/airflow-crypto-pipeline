@@ -1,6 +1,6 @@
-# 🚀 End-to-End Crypto Data Pipeline (Airflow + Docker + PostgreSQL)
+# End-to-End Crypto Data Pipeline (Airflow + Docker + PostgreSQL)
 
-## 📌 Overview
+## Overview
 
 This project implements an end-to-end data engineering pipeline that ingests, processes, and stores real-time cryptocurrency market data.
 
@@ -10,13 +10,13 @@ Simulates a production-style ETL workflow with automated scheduling and scalable
 
 ---
 
-## 🏗️ Architecture
+## Architecture
 
 CoinGecko API → Python (ETL) → PostgreSQL → Airflow → BI Tools
 
 ---
 
-## 🧩 Architecture Diagram
+## Architecture Diagram
 
 The following diagram illustrates the end-to-end data pipeline architecture, including data ingestion, transformation, orchestration, and storage.
 
@@ -26,7 +26,7 @@ The following diagram illustrates the end-to-end data pipeline architecture, inc
 
 ---
 
-## ⚙️ Tech Stack
+## Tech Stack
 
 * Python (pandas, requests, SQLAlchemy)
 * Apache Airflow (DAGs, scheduling)
@@ -36,7 +36,7 @@ The following diagram illustrates the end-to-end data pipeline architecture, inc
 
 ---
 
-## 🌐 Data Source
+## Data Source
 
 This project uses the CoinGecko API to retrieve real-time cryptocurrency market data.
 
@@ -49,7 +49,7 @@ https://api.coingecko.com/api/v3/coins/markets
 
 ---
 
-## 🔄 Pipeline Workflow
+## Pipeline Workflow
 
 ### 1. Data Ingestion (Extract)
 
@@ -73,7 +73,7 @@ https://api.coingecko.com/api/v3/coins/markets
 
 ---
 
-## 📁 Project Structure
+## Project Structure
 
 airflow-crypto-pipeline/
 │
@@ -87,7 +87,7 @@ airflow-crypto-pipeline/
 
 ---
 
-## 🧠 ETL Implementation
+## ETL Implementation
 
 The ETL pipeline is implemented in a single Python module:
 
@@ -100,7 +100,7 @@ The Airflow DAG imports these functions and executes them as a scheduled workflo
 
 ---
 
-## 📸 Screenshots
+## Screenshots
 
 ### 🔹 Airflow DAG Execution
 
@@ -112,7 +112,7 @@ The Airflow DAG imports these functions and executes them as a scheduled workflo
 
 ---
 
-## ▶️ How to Run
+## How to Run
 
 ### 1. Start Docker
 
@@ -173,7 +173,7 @@ Exit:
 
 ---
 
-## 🔄 Pipeline Flow
+## Pipeline Flow
 
 Docker → Airflow → DAG Execution → PostgreSQL → Query Results
 
@@ -194,7 +194,7 @@ Docker → Airflow → DAG Execution → PostgreSQL → Query Results
 
 ---
 
-## 🔑 Key Features
+## Key Features
 
 * Automated ETL pipeline using Apache Airflow
 * Real-time data ingestion from CoinGecko API
@@ -205,7 +205,7 @@ Docker → Airflow → DAG Execution → PostgreSQL → Query Results
 
 ---
 
-## 🚀 Future Improvements
+## Future Improvements
 
 * Refactor pipeline into modular components (extract / transform / load)
 * Add data validation and logging
@@ -215,7 +215,7 @@ Docker → Airflow → DAG Execution → PostgreSQL → Query Results
 
 ---
 
-## 🧠 What This Project Demonstrates
+## What This Project Demonstrates
 
 * ETL pipeline development
 * API integration
@@ -225,6 +225,6 @@ Docker → Airflow → DAG Execution → PostgreSQL → Query Results
 
 ---
 
-## 📬 Contact
+## Contact
 
 Open to opportunities in Data Engineering, Data Science, and Analytics.
