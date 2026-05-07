@@ -1,4 +1,4 @@
-# Import libraries
+# Import libraries 
 import requests
 import pandas as pd
 from sqlalchemy import create_engine # function from SQLAlchemy used to create a connection to SQL databases.
